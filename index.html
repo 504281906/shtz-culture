@@ -119,15 +119,28 @@
     .quick-link-icon {
       width: 50px;
       height: 50px;
-      background: linear-gradient(135deg, rgba(40,142,243,0.25), rgba(26,109,214,0.25));
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.4);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 16px rgba(40,142,243,0.2), inset 0 1px 0 rgba(255,255,255,0.3);
+      box-shadow: 0 4px 14px rgba(40,142,243,0.35);
+      position: relative;
+      overflow: hidden;
+    }
+    .quick-link-icon::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0));
+      border-radius: inherit;
+    }
+    .quick-link-icon svg {
+      width: 24px;
+      height: 24px;
+      position: relative;
+      z-index: 1;
+      fill: rgba(255,255,255,0.9);
     }
     .quick-link span {
       font-size: 11px;
@@ -135,18 +148,6 @@
       text-align: center;
       line-height: 1.2;
     }
-    .ql-1 { background: linear-gradient(135deg, rgba(74,144,226,0.3), rgba(74,144,226,0.15)); border-color: rgba(74,144,226,0.3); }
-    .ql-2 { background: linear-gradient(135deg, rgba(80,200,120,0.3), rgba(80,200,120,0.15)); border-color: rgba(80,200,120,0.3); }
-    .ql-3 { background: linear-gradient(135deg, rgba(255,107,107,0.3), rgba(255,107,107,0.15)); border-color: rgba(255,107,107,0.3); }
-    .ql-4 { background: linear-gradient(135deg, rgba(155,89,182,0.3), rgba(155,89,182,0.15)); border-color: rgba(155,89,182,0.3); }
-    .ql-1 { background: linear-gradient(135deg, rgba(74,144,226,0.3), rgba(74,144,226,0.15)); border-color: rgba(74,144,226,0.3); }
-    .ql-2 { background: linear-gradient(135deg, rgba(80,200,120,0.3), rgba(80,200,120,0.15)); border-color: rgba(80,200,120,0.3); }
-    .ql-3 { background: linear-gradient(135deg, rgba(255,107,107,0.3), rgba(255,107,107,0.15)); border-color: rgba(255,107,107,0.3); }
-    .ql-4 { background: linear-gradient(135deg, rgba(155,89,182,0.3), rgba(155,89,182,0.15)); border-color: rgba(155,89,182,0.3); }
-    .ql-1 svg { color: #4A90E2; }
-    .ql-2 svg { color: #28C76F; }
-    .ql-3 svg { color: #FF4757; }
-    .ql-4 svg { color: #9B59B6; }
     .quick-link-icon svg { width: 24px; height: 24px; }
 
     /* Section */
@@ -358,38 +359,26 @@
 <!-- Quick Links -->
 <nav class="quick-links">
   <a href="#lines" class="quick-link">
-    <div class="quick-link-icon ql-1">
-      <div class="shape"></div>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-      </svg>
+    <div class="quick-link-icon">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.2)"/><path d="M12 6v6l4 2" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
     <span>线路站点</span>
   </a>
   <a href="#lights" class="quick-link">
-    <div class="quick-link-icon ql-2">
-      <div class="shape"></div>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-      </svg>
+    <div class="quick-link-icon">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="rgba(255,255,255,0.2)"/><path d="M3 9h18M9 21V9" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
     <span>公益灯箱</span>
   </a>
   <a href="#vr" class="quick-link">
-    <div class="quick-link-icon ql-3">
-      <div class="shape"></div>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 12A9 9 0 1 1 12 3"/><path d="M21 12h-4a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4"/><circle cx="12" cy="12" r="3"/>
-      </svg>
+    <div class="quick-link-icon">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="rgba(255,255,255,0.2)"/><circle cx="12" cy="12" r="3" fill="rgba(255,255,255,0.9)"/></svg>
     </div>
     <span>VR全景</span>
   </a>
   <a href="#show" class="quick-link">
-    <div class="quick-link-icon ql-4">
-      <div class="shape"></div>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="5 3 19 12 5 21 5 3"/>
-      </svg>
+    <div class="quick-link-icon">
+      <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" fill="rgba(255,255,255,0.2)"/><polygon points="5 3 19 12 5 21 5 3" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2.5" stroke-linejoin="round"/></svg>
     </div>
     <span>演艺空间</span>
   </a>
