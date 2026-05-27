@@ -4,13 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>上海地铁公共文化阵地</title>
-  <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/font/lucide.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #288EF3;
+      --primary-dark: #1a6dd6;
+      --primary-light: rgba(40,142,243,0.12);
+      --bg: #f4f7fb;
+      --card: #fff;
+      --text1: #1a1a1a;
+      --text2: #555;
+      --text3: #999;
+      --border: #e8eef5;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
-      background: #f5f5f5;
-      color: #333;
+      font-family: "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text1);
       max-width: 430px;
       margin: 0 auto;
       min-height: 100vh;
@@ -19,30 +32,31 @@
 
     /* Header */
     .header {
-      background: linear-gradient(135deg, #c41e3a, #8b0000);
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: #fff;
-      padding: 16px 20px;
+      padding: 18px 20px 14px;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 8px rgba(196,30,58,0.3);
+      box-shadow: 0 3px 12px rgba(40,142,243,0.35);
     }
     .header h1 {
       font-size: 18px;
-      font-weight: 600;
-      letter-spacing: 2px;
+      font-weight: 700;
+      letter-spacing: 3px;
     }
     .header p {
-      font-size: 12px;
-      opacity: 0.9;
-      margin-top: 4px;
+      font-size: 11px;
+      opacity: 0.85;
+      margin-top: 3px;
+      letter-spacing: 1px;
     }
 
-    /* Banner Carousel */
+    /* Banner */
     .banner {
       position: relative;
-      height: 200px;
+      height: 210px;
       overflow: hidden;
     }
     .banner-slider {
@@ -53,7 +67,6 @@
     .banner-slide {
       min-width: 100%;
       height: 100%;
-      position: relative;
     }
     .banner-slide img {
       width: 100%;
@@ -62,48 +75,33 @@
     }
     .banner-overlay {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.7));
-      padding: 30px 20px 16px;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.65));
+      padding: 50px 20px 16px;
       color: #fff;
     }
-    .banner-overlay h2 {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-    .banner-overlay p {
-      font-size: 13px;
-      opacity: 0.9;
-    }
+    .banner-overlay h2 { font-size: 19px; font-weight: 700; margin-bottom: 4px; }
+    .banner-overlay p { font-size: 12px; opacity: 0.9; }
     .banner-dots {
       position: absolute;
-      bottom: 10px;
-      left: 50%;
+      bottom: 10px; left: 50%;
       transform: translateX(-50%);
-      display: flex;
-      gap: 6px;
+      display: flex; gap: 6px;
     }
     .banner-dot {
-      width: 6px;
-      height: 6px;
+      width: 6px; height: 6px;
       border-radius: 50%;
       background: rgba(255,255,255,0.5);
     }
-    .banner-dot.active {
-      background: #fff;
-    }
+    .banner-dot.active { background: #fff; }
 
     /* Quick Links */
     .quick-links {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      gap: 10px;
       padding: 20px 16px;
-      background: #fff;
-      margin-top: -1px;
+      background: var(--card);
     }
     .quick-link {
       display: flex;
@@ -111,29 +109,24 @@
       align-items: center;
       gap: 8px;
       text-decoration: none;
-      color: #333;
+      color: var(--text1);
     }
     .quick-link-icon {
-      width: 52px;
-      height: 52px;
-      background: linear-gradient(135deg, #c41e3a, #8b0000);
+      width: 50px; height: 50px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 24px;
-      box-shadow: 0 4px 12px rgba(196,30,58,0.3);
+      box-shadow: 0 4px 14px rgba(40,142,243,0.35);
     }
-    .quick-link span {
-      font-size: 12px;
-      font-weight: 500;
-      text-align: center;
-    }
+    .quick-link-icon svg { width: 22px; height: 22px; }
+    .quick-link span { font-size: 12px; font-weight: 500; }
 
     /* Section */
     .section {
-      background: #fff;
+      background: var(--card);
       margin-top: 10px;
       padding: 20px 16px;
     }
@@ -141,33 +134,29 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .section-title {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 700;
-      color: #1a1a1a;
+      color: var(--text1);
       display: flex;
       align-items: center;
       gap: 8px;
     }
     .section-title::before {
       content: '';
-      width: 4px;
-      height: 18px;
-      background: linear-gradient(180deg, #c41e3a, #8b0000);
+      width: 4px; height: 18px;
+      background: linear-gradient(180deg, var(--primary), var(--primary-dark));
       border-radius: 2px;
     }
     .section-more {
       font-size: 13px;
-      color: #999;
+      color: var(--primary);
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 4px;
     }
 
-    /* Line Filter Chips */
+    /* Line Filter */
     .line-chips {
       display: flex;
       gap: 8px;
@@ -179,18 +168,18 @@
     .line-chips::-webkit-scrollbar { display: none; }
     .line-chip {
       flex-shrink: 0;
-      padding: 6px 16px;
+      padding: 5px 16px;
       border-radius: 20px;
       font-size: 13px;
       font-weight: 500;
-      border: 1px solid #e0e0e0;
-      background: #fff;
-      color: #666;
+      border: 1.5px solid var(--border);
+      background: var(--card);
+      color: var(--text2);
       cursor: pointer;
       transition: all 0.2s;
     }
     .line-chip.active, .line-chip:hover {
-      background: linear-gradient(135deg, #c41e3a, #8b0000);
+      background: var(--primary);
       color: #fff;
       border-color: transparent;
     }
@@ -202,29 +191,29 @@
       gap: 10px;
     }
     .station-card {
-      background: #f9f9f9;
+      background: var(--bg);
       border-radius: 10px;
       overflow: hidden;
       text-align: center;
     }
     .station-card img {
       width: 100%;
-      height: 70px;
+      height: 76px;
       object-fit: cover;
     }
     .station-card-name {
-      padding: 8px 6px;
+      padding: 8px 4px 2px;
       font-size: 12px;
-      font-weight: 500;
-      color: #333;
+      font-weight: 600;
+      color: var(--text1);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
     .station-card-line {
       font-size: 11px;
-      color: #c41e3a;
-      padding: 0 6px 8px;
+      color: var(--primary);
+      padding: 0 4px 8px;
     }
 
     /* Culture List */
@@ -236,7 +225,7 @@
     .culture-item {
       display: flex;
       gap: 12px;
-      background: #f9f9f9;
+      background: var(--bg);
       border-radius: 12px;
       overflow: hidden;
       text-decoration: none;
@@ -260,20 +249,20 @@
       justify-content: center;
     }
     .culture-item-title {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
-      color: #1a1a1a;
-      margin-bottom: 4px;
+      color: var(--text1);
+      margin-bottom: 3px;
     }
     .culture-item-meta {
       font-size: 12px;
-      color: #888;
+      color: var(--text3);
       margin-bottom: 2px;
     }
     .culture-item-desc {
       font-size: 12px;
-      color: #666;
-      line-height: 1.4;
+      color: var(--text2);
+      line-height: 1.45;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -281,15 +270,15 @@
     }
     .culture-item-tags {
       display: flex;
-      gap: 6px;
+      gap: 5px;
       margin-top: 6px;
       flex-wrap: wrap;
     }
     .culture-tag {
       font-size: 11px;
       padding: 2px 8px;
-      background: rgba(196,30,58,0.1);
-      color: #c41e3a;
+      background: var(--primary-light);
+      color: var(--primary);
       border-radius: 10px;
     }
 
@@ -301,8 +290,8 @@
       transform: translateX(-50%);
       width: 100%;
       max-width: 430px;
-      background: #fff;
-      border-top: 1px solid #eee;
+      background: var(--card);
+      border-top: 1px solid var(--border);
       display: flex;
       padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
       z-index: 200;
@@ -314,14 +303,14 @@
       align-items: center;
       gap: 4px;
       text-decoration: none;
-      color: #999;
+      color: var(--text3);
       font-size: 11px;
+      transition: color 0.2s;
     }
-    .tab-item.active {
-      color: #c41e3a;
-    }
+    .tab-item.active { color: var(--primary); }
     .tab-icon {
       font-size: 22px;
+      line-height: 1;
     }
   </style>
 </head>
@@ -337,21 +326,21 @@
 <div class="banner">
   <div class="banner-slider" id="bannerSlider">
     <div class="banner-slide">
-      <img src="https://img.frese.mep/secure/gh/504281906/coal-mine-intelligent@main/2026-05-27/assets/banner-caobao.jpg" alt="漕宝路站">
+      <img src="assets/img1.jpg" alt="站点壁画">
       <div class="banner-overlay">
         <h2>漕宝路站 · 站厅壁画</h2>
         <p>玻璃马赛克艺术 · 都市森林</p>
       </div>
     </div>
     <div class="banner-slide">
-      <img src="https://img.frese.mep/secure/gh/504281906/coal-mine-intelligent@main/2026-05-27/assets/banner-culture.jpg" alt="公益文化">
+      <img src="assets/img2.jpg" alt="公益灯箱">
       <div class="banner-overlay">
         <h2>公益灯箱 · 艺术阵地</h2>
         <p>地铁空间的文化窗口</p>
       </div>
     </div>
     <div class="banner-slide">
-      <img src="https://img.frese.mep/secure/gh/504281906/coal-mine-intelligent@main/2026-05-27/assets/banner-vr.jpg" alt="VR全景">
+      <img src="assets/img3.jpg" alt="VR全景">
       <div class="banner-overlay">
         <h2>VR全景 · 沉浸体验</h2>
         <p>身临其境的地铁艺术之旅</p>
@@ -369,25 +358,33 @@
 <nav class="quick-links">
   <a href="#lines" class="quick-link">
     <div class="quick-link-icon">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+      </svg>
     </div>
     <span>线路站点</span>
   </a>
   <a href="#lights" class="quick-link">
     <div class="quick-link-icon">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+      </svg>
     </div>
     <span>公益灯箱</span>
   </a>
   <a href="#vr" class="quick-link">
     <div class="quick-link-icon">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12A9 9 0 1 1 12 3"/><path d="M21 12h-4a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4"/><circle cx="12" cy="12" r="3"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12A9 9 0 1 1 12 3"/><path d="M21 12h-4a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4"/><circle cx="12" cy="12" r="3"/>
+      </svg>
     </div>
     <span>VR全景</span>
   </a>
   <a href="#show" class="quick-link">
     <div class="quick-link-icon">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="5 3 19 12 5 21 5 3"/>
+      </svg>
     </div>
     <span>演艺空间</span>
   </a>
@@ -407,36 +404,35 @@
     <span class="line-chip">9号线</span>
     <span class="line-chip">10号线</span>
     <span class="line-chip">12号线</span>
-    <span class="line-chip">更多</span>
   </div>
   <div class="station-grid">
     <div class="station-card">
-      <img src="https://img.frese.mep/secure/gh/504281906/coal-mine-intelligent@main/2026-05-27/assets/station-caobao.jpg" alt="漕宝路">
+      <img src="assets/img1.jpg" alt="漕宝路">
       <div class="station-card-name">漕宝路</div>
       <div class="station-card-line">1/12号线</div>
     </div>
     <div class="station-card">
-      <img src="https://img.frese.mep/secure/gh/504281906/coal-mine-intelligent@main/2026-05-27/assets/station-caobao.jpg" alt="徐泾东">
+      <img src="assets/img2.jpg" alt="徐泾东">
       <div class="station-card-name">徐泾东</div>
       <div class="station-card-line">2号线</div>
     </div>
     <div class="station-card">
-      <img src="https://img.frese.mep/secure/gh/504281906/coal-mine-intelligent@main/2026-05-27/assets/station-caobao.jpg" alt="陆家嘴">
+      <img src="assets/img3.jpg" alt="陆家嘴">
       <div class="station-card-name">陆家嘴</div>
       <div class="station-card-line">2号线</div>
     </div>
     <div class="station-card">
-      <img src="https://img.frese.mep/secure/gh/504281906/coal-mine-intelligent@main/2026-05-27/assets/station-caobao.jpg" alt="静安寺">
+      <img src="assets/img4.jpg" alt="静安寺">
       <div class="station-card-name">静安寺</div>
       <div class="station-card-line">2/7号线</div>
     </div>
     <div class="station-card">
-      <img src="https://img.frese.mep/secure/gh/504281906/coal-mine-intelligent@main/2026-05-27/assets/station-caobao.jpg" alt="南京东路">
+      <img src="assets/img5.jpg" alt="南京东路">
       <div class="station-card-name">南京东路</div>
       <div class="station-card-line">2/10号线</div>
     </div>
     <div class="station-card">
-      <img src="https://img.frese.mep/secure/gh/504281906/coal-mine-intelligent@main/2026-05-27/assets/station-caobao.jpg" alt="新天地">
+      <img src="assets/img6.jpg" alt="新天地">
       <div class="station-card-name">新天地</div>
       <div class="station-card-line">1/10号线</div>
     </div>
@@ -451,9 +447,7 @@
   </div>
   <div class="culture-list">
     <a href="#" class="culture-item">
-      <div class="culture-item-img">
-        <img src="https://img.frese.mep/secure/gh/504281906/coal-mine-intelligent@main/2026-05-27/assets/station-caobao.jpg" alt="漕宝路站">
-      </div>
+      <div class="culture-item-img"><img src="assets/img1.jpg" alt="漕宝路站"></div>
       <div class="culture-item-info">
         <div class="culture-item-title">漕宝路站 · 站厅壁画</div>
         <div class="culture-item-meta">徐汇区 · 1号线/12号线</div>
@@ -465,9 +459,7 @@
       </div>
     </a>
     <a href="#" class="culture-item">
-      <div class="culture-item-img">
-        <img src="https://img.frese.mep/secure/gh/504281906/coal-mine-intelligent@main/2026-05-27/assets/station-caobao.jpg" alt="南京东路站">
-      </div>
+      <div class="culture-item-img"><img src="assets/img2.jpg" alt="公益灯箱"></div>
       <div class="culture-item-info">
         <div class="culture-item-title">南京东路站 · 公益灯箱</div>
         <div class="culture-item-meta">黄浦区 · 2号线/10号线</div>
@@ -479,9 +471,7 @@
       </div>
     </a>
     <a href="#" class="culture-item">
-      <div class="culture-item-img">
-        <img src="https://img.frese.mep/secure/gh/504281906/coal-mine-intelligent@main/2026-05-27/assets/station-caobao.jpg" alt="陆家嘴站">
-      </div>
+      <div class="culture-item-img"><img src="assets/img3.jpg" alt="演艺空间"></div>
       <div class="culture-item-info">
         <div class="culture-item-title">陆家嘴站 · 演艺空间</div>
         <div class="culture-item-meta">浦东新区 · 2号线</div>
@@ -489,6 +479,18 @@
         <div class="culture-item-tags">
           <span class="culture-tag">演艺空间</span>
           <span class="culture-tag">音乐演出</span>
+        </div>
+      </div>
+    </a>
+    <a href="#" class="culture-item">
+      <div class="culture-item-img"><img src="assets/img4.jpg" alt="VR全景"></div>
+      <div class="culture-item-info">
+        <div class="culture-item-title">静安寺站 · VR全景体验</div>
+        <div class="culture-item-meta">静安区 · 2号线/7号线</div>
+        <div class="culture-item-desc">通过VR技术还原地铁站艺术阵地，身临其境感受上海地铁文化魅力。</div>
+        <div class="culture-item-tags">
+          <span class="culture-tag">VR全景</span>
+          <span class="culture-tag">沉浸体验</span>
         </div>
       </div>
     </a>
@@ -501,17 +503,13 @@
     <span class="tab-icon">🏠</span>
     <span>首页</span>
   </a>
-  <a href="#" class="tab-item">
-    <span class="tab-icon">🔍</span>
-    <span>搜索</span>
-  </a>
-  <a href="#" class="tab-item">
-    <span class="tab-icon">📍</span>
+  <a href="#lines" class="tab-item">
+    <span class="tab-icon">🚇</span>
     <span>站点</span>
   </a>
-  <a href="#" class="tab-item">
-    <span class="tab-icon">👤</span>
-    <span>我的</span>
+  <a href="#lights" class="tab-item">
+    <span class="tab-icon">📍</span>
+    <span>阵地</span>
   </a>
 </nav>
 
@@ -527,11 +525,7 @@
     slider.style.transform = `translateX(-${index * 100}%)`;
     dots.forEach((d, i) => d.classList.toggle('active', i === index));
   }
-
-  function nextSlide() {
-    goToSlide((currentSlide + 1) % totalSlides);
-  }
-
+  function nextSlide() { goToSlide((currentSlide + 1) % totalSlides); }
   setInterval(nextSlide, 4000);
 
   // Line chip filter
@@ -540,6 +534,17 @@
       document.querySelectorAll('.line-chip').forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
     });
+  });
+
+  // Tab bar active sync on scroll
+  const sections = document.querySelectorAll('.section');
+  const tabs = document.querySelectorAll('.tab-item');
+  window.addEventListener('scroll', () => {
+    let current = 0;
+    sections.forEach((s, i) => {
+      if (s.getBoundingClientRect().top <= 120) current = i;
+    });
+    tabs.forEach((t, i) => t.classList.toggle('active', i === current));
   });
 </script>
 
